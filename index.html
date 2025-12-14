@@ -306,7 +306,7 @@
     <section class="hero">
         <div class="glow-orb"></div>
         <div class="container reveal">
-            <span class="hero-tag">The Voice-First Brand Workbook</span>
+            <span class="hero-tag">The Voice-First Branding Workbook</span>
             <h1 class="display-text">
                 You've Been Building for 2+ Years.<br>
                 And You're Still <span class="highlight">Invisible.</span>
@@ -474,24 +474,47 @@
         </div>
     </footer>
 
+    
     <script>
-        // Tally Widget Script
+
+        // Tally Widget Script (Handles the loading of the iframe)
+
         var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
 
+
+
         // Reveal on Scroll Script
+
         function reveal() {
+
             var reveals = document.querySelectorAll(".reveal");
+
             for (var i = 0; i < reveals.length; i++) {
+
                 var windowHeight = window.innerHeight;
+
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100;
+
+                var elementVisible = 150;
+
                 if (elementTop < windowHeight - elementVisible) {
+
                     reveals[i].classList.add("active");
+
                 }
+
             }
+
         }
+
         window.addEventListener("scroll", reveal);
-        reveal(); // Trigger once on load
+
+        // Trigger once on load
+
+        reveal();
+
     </script>
+
 </body>
+
 </html>
