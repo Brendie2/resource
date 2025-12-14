@@ -25,7 +25,6 @@
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            min-height: 100vh; /* Ensure full viewport height */
         }
 
         .container {
@@ -34,7 +33,7 @@
             padding: 0 1.5rem;
         }
 
-        /* Utility Classes (Simplified for brevity, following prior structure) */
+        /* Utility Classes */
         .text-center { text-align: center; }
         .mx-auto { margin-left: auto; margin-right: auto; }
         .pt-24 { padding-top: 6rem; }
@@ -56,6 +55,7 @@
         .items-center { align-items: center; }
         .justify-center { justify-content: center; }
         .justify-between { justify-content: space-between; }
+        .font-sans { font-family: var(--font-sans); }
         .font-serif { font-family: var(--font-serif); }
         .font-bold { font-weight: 700; }
         .font-medium { font-weight: 500; }
@@ -67,6 +67,7 @@
         .text-3xl { font-size: 1.875rem; }
         .text-4xl { font-size: 2.25rem; }
         .text-5xl { font-size: 3rem; }
+        .text-7xl { font-size: 4.5rem; }
         .leading-snug { line-height: 1.375; }
         .leading-relaxed { line-height: 1.75; }
         .leading-\[1\.1\] { line-height: 1.1; }
@@ -118,6 +119,9 @@
         .agitation-list {
             border-left: 2px solid #333;
             padding-left: 2rem;
+        }
+        .agitation-list p {
+            color: #999;
         }
         .agitation-box {
             background-color: #1a1a1a;
@@ -249,10 +253,6 @@
             border-radius: 9999px;
             filter: blur(100px);
         }
-        .cta-form-container {
-            position: relative;
-            z-index: 10;
-        }
         .cta-form input {
             width: 100%;
             padding: 1rem 1.5rem;
@@ -260,9 +260,9 @@
             border: 1px solid #333;
             border-radius: 0.5rem;
             color: white;
+            placeholder-color: #555;
             transition: border-color 0.2s;
             box-sizing: border-box;
-            margin-bottom: 1rem;
         }
         .cta-form input:focus {
             outline: none;
@@ -283,7 +283,7 @@
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
-            margin-top: 0.5rem;
+            margin-top: 1rem;
         }
         .cta-button-form:hover {
             background-color: #d63f00;
@@ -293,6 +293,16 @@
             padding: 2rem;
             border-radius: 0.5rem;
             border: 1px solid #333;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f0f0f;
+            padding: 3rem 0;
+            border-top: 1px solid #222;
+        }
+        footer p {
+            color: #444;
         }
 
         /* Responsive Adjustments */
@@ -305,6 +315,10 @@
             .agitation-list { padding-left: 1.5rem; }
         }
     </style>
+    <script>
+        // Simple client-side JS for form submission and icon rendering if using a CDN
+        // For production, these icons should be SVG/image assets.
+    </script>
 </head>
 <body>
 
@@ -313,12 +327,12 @@
             For the expert who is tired of being the best-kept secret
         </div>
 
-        <h1 class="text-5xl font-serif text-white mb-8 leading-[1.1] tracking-tight hero-title">
+        <h1 class="text-5xl md:text-7xl font-serif text-white mb-8 leading-[1.1] tracking-tight hero-title">
             You’re doing everything “right.” <br />
             <span class="italic">So why are you still invisible?</span>
         </h1>
 
-        <div class="text-xl text-[--color-text-dim] mb-10 space-y-4 max-w-2xl mx-auto leading-relaxed">
+        <div class="text-xl text-[#888] mb-10 space-y-4 max-w-2xl mx-auto leading-relaxed">
             <p>
                 It’s not the algorithm. It’s not your niche. And it’s definitely not a lack of effort.
             </p>
@@ -328,10 +342,9 @@
         </div>
 
         <a href="#download" class="cta-button">
-            End The Cycle of Invisibility
-        </a>
+            End The Cycle of Invisibility </a>
 
-        <p class="text-sm text-[--color-text-faded] mt-6">
+        <p class="text-sm text-[#555] mt-6">
             Free 45-minute workbook. No fluff. Just clarity.
         </p>
     </section>
@@ -339,7 +352,6 @@
     <section class="nightmare-section py-24 border-t border-[#222]">
         <div class="container max-w-3xl mx-auto">
             <div class="flex items-start gap-4 mb-8">
-                <span style="color: var(--color-accent); font-size: 1.5rem; margin-top: 0.1rem;">&#9888;</span>
                 <h2 class="text-3xl font-serif text-white">
                     The 3am Spiral (You Know The One)
                 </h2>
@@ -369,7 +381,7 @@
                         <span style="color: #333;">&rarr;</span>
                         <span style="color: var(--color-accent);">&nbsp;Repeat&nbsp;</span>
                     </div>
-                </div>
+                     </div>
 
                 <p>
                     Your family asks: <span class="italic">"So how's that personal branding thing going?"</span>
@@ -412,7 +424,7 @@
                     </p>
                 </div>
             </div>
-        </div>
+             </div>
     </section>
 
     <section class="solution-section py-24">
@@ -456,7 +468,7 @@
                                 <span class="font-medium">Your OBSESSION (What keeps you up at night)</span>
                             </li>
                         </ul>
-                    </div>
+                         </div>
 
                     <div class="outcome-card">
                         <h4 class="font-bold mb-4 uppercase tracking-widest text-xs text-[#888]">The Outcome</h4>
@@ -516,7 +528,7 @@
     <section id="download" class="cta-section py-24">
         <div class="cta-glow"></div>
 
-        <div class="container max-w-xl mx-auto text-center cta-form-container">
+        <div class="container max-w-xl mx-auto relative z-10 text-center">
             <h2 class="text-4xl font-serif text-white mb-6">
                 Your Voice is Waiting.
             </h2>
@@ -525,57 +537,25 @@
                 Get the clarity you need to finally be seen.
             </p>
 
-            <div id="form-content">
-                <form id="download-form" class="space-y-4 cta-form">
-                    <input type="text" id="first-name" required placeholder="First Name">
-                    <input type="email" id="email-address" required placeholder="Email Address">
+            <form class="space-y-4 cta-form">
+                <input type="text" required placeholder="First Name">
+                <input type="email" required placeholder="Email Address">
 
-                    <button type="submit" class="cta-button-form">
-                        &#128274; Send Me The Workbook
-                    </button>
+                <button type="submit" class="cta-button-form">
+                    Send Me The Workbook
+                </button>
 
-                    <p class="text-[#444] text-xs mt-6">
-                        Join 2,847 builders. Unsubscribe anytime. No spam, ever.
-                    </p>
-                </form>
-            </div>
-
+                <p class="text-[#444] text-xs mt-6">
+                    Join 2,847 builders. Unsubscribe anytime. No spam, ever.
+                </p>
+            </form>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p class="text-sm">© 2025 Brenda Blanche | Voice-First Personal Branding Strategist.</p>
+            <p class="text-sm">© 2024 Voice-First Personal Branding.</p>
         </div>
     </footer>
-
-    <script>
-        document.getElementById('download-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Stop the default form submission
-
-            const firstName = document.getElementById('first-name').value;
-            const email = document.getElementById('email-address').value;
-            const formContent = document.getElementById('form-content');
-
-            // --- Replace with your actual email submission API call (e.g., Mailchimp, ConvertKit, etc.) ---
-            console.log('Form Submitted (Placeholder):', { firstName, email });
-            // In a real application, you would send this data to a server/service now.
-            // --------------------------------------------------------------------------------------------
-
-            // Show success message
-            formContent.innerHTML = `
-                <div class="submitted-message">
-                    <div style="width: 4rem; height: 4rem; background-color: var(--color-accent); opacity: 0.1; border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
-                        <span style="color: var(--color-accent); font-size: 2rem;">&#10003;</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-2">Check Your Email!</h3>
-                    <p class="text-[#888]">
-                        We've sent the workbook to <span class="text-white">${email}</span>.
-                        <br/>It's time to find your voice.
-                    </p>
-                </div>
-            `;
-        });
-    </script>
 </body>
 </html>
